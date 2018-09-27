@@ -1,0 +1,269 @@
+
+		
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GoGreen Market</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+    
+    <link href="style.css" rel="stylesheet"/>
+ 
+	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+		
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+  </head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="topNav">
+		<div class="container">
+			<div class="alignR">
+				
+				
+				 
+				<a href="myprofile.php" ><span class="icon-user"></span> My Profile</a> 
+				<a href="todayupload.html" class="active"><span class="icon-upload"></span>Today Upload</a> 
+				<a  href="logout.php" > <span class="icon-off"></span>Logout</a> 
+				<a href="#"><span class="icon-envelope"></span> Contact us</a>
+				<a href="admin.php"><span class="icon-user"></span>Admin</a>
+
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
+Lower Header Section 
+-->
+<div class="container">
+<div id="gototop"> </div>
+<header id="header">
+<div class="row">
+	<div class="span4">
+
+	<a class="logo" href="index.php"><span></span> 
+		<img align=top; src="assets/img/logo.png" height=150px; width=150px; alt="GoGreen Market"> 
+	</a>
+	
+	</div>
+	<div class="span4">
+				<br>
+				<br>
+				<br>
+
+			<h3>   GoGreen Market<h3>
+	
+
+	</div>
+	<div class="span4 alignR">
+	<p><br> <strong> Support 24x7 :  9444922839 </strong><br><br></p>
+	
+	</div>
+</div>
+</header>
+
+<!--
+Navigation Bar Section 
+-->
+	
+<div class="row">
+<div id="sidebar" class="span3">
+
+</div>
+
+			  
+	</div>
+
+	<div class="span9">
+    <ul class="breadcrumb">
+		<li class="active">Today Upload</li>
+    </ul>
+	<h3>Today Upload </h3>	
+	<hr class="soft"/>
+	<div class="well">
+	
+	<form action="farmerupload.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
+		
+		 <div class="control-group">
+		<label class="control-label" for="producttype">product Type <sup>*</sup></label>
+		<div class="controls">
+		   <select  name="producttype" required>
+				
+					<option value="Vegitables">காய்கறி/Vegitables&nbsp;&nbsp;</option>
+					<option value="Leafs">கீரை/Leafs&nbsp;&nbsp;</option>
+					<option value="Fruits"> பழம்/fruits&nbsp;&nbsp;</option>
+					<option value="Grains">பயறு/Grains&nbsp;&nbsp;</option>
+					
+					
+			</select>
+		</div>
+	  </div>
+		 
+		 <div class="control-group">
+		<label class="control-label" for="pname">product Name<sup>*</sup></label>
+		<div class="controls">
+		  <select  name="pname" required>
+					
+					
+				
+					
+					
+					<option value="Ash Gourd"> பூசணிக்காய்/Ash Gourd&nbsp;&nbsp;</option>
+					<option value="Beans">பீன்ஸ்/Beans &nbsp;&nbsp;</option>
+					<option value="Bitter Gourd">பாகற்காய்/Bitter Gourd  &nbsp;&nbsp;</option>
+					<option value="Bottle Gourd">சுரைக்காய்  /Bottle Gourd  &nbsp;&nbsp;</option>
+					<option value="Broad Beans"> அவரைக்காய்  /Broad Beans   &nbsp;&nbsp;</option>
+					<option value="Capsicum">குடை மிளகாய்  /Capsicum   &nbsp;&nbsp;</option>
+					<option value="Green Chilli"> பச்சை மிளகாய்  /Green Chilli   &nbsp;&nbsp;</option>
+					<option value="Cucumber">வெள்ளரிக்காய்/Cucumber  &nbsp;&nbsp;</option>
+					<option value="Drum Stick">முருங்கைக்காய்   /Drum Stick     &nbsp;&nbsp;</option>
+					<option value="Brinjal">கத்திரிக்காய் /Brinjal  &nbsp;&nbsp;</option>
+					<option value="Gooseberry">நெல்லிக்காய் /Gooseberry  &nbsp;&nbsp;</option>
+					<option value="Phyllanthus Distichus">அரைநெல்லி/Phyllanthus Distichus    &nbsp;&nbsp;</option>
+					<option value="Little Gourd">கோவைக்காய்   / Little Gourd    &nbsp;&nbsp;</option>
+					<option value="Lady’S Finger">வெண்டைக்காய் /Lady’S Finger   &nbsp;&nbsp;</option>
+					<option value="Peas">பட்டாணி /Peas    &nbsp;&nbsp;</option>
+					<option value="Plantain">வாழைக்காய்  /Plantain   &nbsp;&nbsp;</option>
+					<option value="Plantain Stem">வாழைத்தண்டு   /Plantain Stem     &nbsp;&nbsp;</option>
+					<option value="Pumpkin">பூசணிக்காய் /Pumpkin     &nbsp;&nbsp;</option>
+					<option value="Ridge Gourd">பீர்க்கங்காய் /Ridge Gourd  &nbsp;&nbsp;</option>	
+					<option value="Snake Gourd"> புடலங்காய் /Snake Gourd   &nbsp;&nbsp;</option>
+					<option value="Tomato">தக்காளி/Tomato  &nbsp;&nbsp;</option>
+					<option value="Coconut">தேங்காய்/Coconut   &nbsp;&nbsp;</option>
+					
+					<option value=""> &nbsp;&nbsp;</option>
+					<option value="">  &nbsp;&nbsp;</option>
+					
+					<option value="Beet Root">செங்கிழங்கு  /Beet Root  &nbsp;&nbsp;</option>
+					<option value="Cabbage">முட்டைக்கோசு/Cabbage  &nbsp;&nbsp;</option>
+					<option value="Carrot"> மஞ்சள் முள்ளங்கி /Carrot  &nbsp;&nbsp;</option>
+					<option value="Cauliflower">பூக்கோசு/Cauliflower &nbsp;&nbsp;</option>
+					<option value="Elephant Yam">கருணைக்கிழங்கு   /Elephant Yam    &nbsp;&nbsp;</option>
+					<option value="Garlic">வெள்ளைப் பூண்டு /Garlic  &nbsp;&nbsp;</option>
+					<option value="Ginger">இஞ்சி/Ginger   &nbsp;&nbsp;</option>
+					<option value="King Yam">ராசவள்ளிக்கிழங்கு /King Yam    &nbsp;&nbsp;</option>
+					<option value="Kohl Rabi">நூல்கோல்   /Kohl Rabi     &nbsp;&nbsp;</option>
+					<option value="Mushroom">காளான் /Mushroom   &nbsp;&nbsp;</option>
+					<option value="Onion">வெங்காயம் /Onion    &nbsp;&nbsp;</option>
+					<option value="Potato">உருளைக்கிழங்கு /Potato  &nbsp;&nbsp;</option>
+					<option value="Radish">முள்ளங்கி    /Radish      &nbsp;&nbsp;</option>
+					<option value="Sweet Potato">சர்க்கரைவள்ளிக்கிழங்கு /Sweet Potato     &nbsp;&nbsp;</option>
+					<option value="Tapioca">மரவள்ளி(க்கிழங்கு)/Tapioca   &nbsp;&nbsp;</option>
+					<option value="Yam">சேனைக்கிழங்கு  /Yam      &nbsp;&nbsp;</option>
+									
+					<option value=""> &nbsp;&nbsp;</option>
+					<option value="">  &nbsp;&nbsp;</option>
+					
+					<option value="Curry Leaf">கறிவேப்பிலை  /Curry Leaf    &nbsp;&nbsp;</option>
+					<option value="Peppermint Leaves">புதினா  /Peppermint Leaves   &nbsp;&nbsp;</option>
+					<option value="Spring Onion">வெங்காயத்தடல் /Spring Onion     &nbsp;&nbsp;</option>
+					<option value="Amaranth"> முளைக்கீரை /Amaranth &nbsp;&nbsp;</option>
+					<option value="Cilantro leaf">மல்லிஇலை/Cilantro leaf  &nbsp;&nbsp;</option>
+					<option value="Fenugreek leaves">வெந்தயகீரை /Fenugreek leaves   &nbsp;&nbsp;</option>
+					<option value="Mustard Greens">கடுகுக் கீரை /Mustard Greens   &nbsp;&nbsp;</option>
+					<option value="Spinach">பசலைக்கீரை /Spinach   &nbsp;&nbsp;</option>
+					
+					<option value=""> &nbsp;&nbsp;</option>
+					<option value="">  &nbsp;&nbsp;</option>
+					
+					<option value="Lemon">எலுமிச்சம் பழம்/Lemon  &nbsp;&nbsp;</option>
+					<option value="Mango"> மாம்பழம் /Mango     &nbsp;&nbsp;</option>
+					<option value="Pomegranate">மாதுளை/Pomegranate   &nbsp;&nbsp;</option>
+					<option value="Water Melon">தர்பூசணி /Water Melon  &nbsp;&nbsp;</option>
+					<option value="Wood Apple">விளாம்பழம் /Wood Apple       &nbsp;&nbsp;</option>
+					<option value="Tamarind">புளியம்பழம்/Tamarind   &nbsp;&nbsp;</option>
+					<option value="Sweet Lime">சாத்துக்குடி/Sweet Lime  &nbsp;&nbsp;</option>
+					<option value="Banana">வாழைப்பழம்/Banana   &nbsp;&nbsp;</option>
+					<option value="Pine Apple">அன்னாசிப்பழம்/Pine Apple  &nbsp;&nbsp;</option>
+					<option value="Pears">பேரிக்காய் /Pears       &nbsp;&nbsp;</option>
+					<option value="Papayaa">பப்பாளிப்பழம்/Papayaa    &nbsp;&nbsp;</option>
+					<option value="Orange">ஆரஞ்சு/Orange    &nbsp;&nbsp;</option>
+					<option value="Muskmelon">முலாம் பழம்/Muskmelon   &nbsp;&nbsp;</option>
+					<option value="Fig Fruit">அத்திப்பழம் /Fig Fruit       &nbsp;&nbsp;</option>
+					<option value="Jack Fruit">பலாப்பழம்/Jack Fruit    &nbsp;&nbsp;</option>
+					<option value="Jambu fruit">நாவல்பழம்  /jambu fruit   &nbsp;&nbsp;</option>
+					<option value="Guava">கொய்யா பழம்/Guava    &nbsp;&nbsp;</option>
+					<option value="Grapes">திராட்சைப்பழம்/Grapes     &nbsp;&nbsp;</option>
+					<option value="Custard Apple">சீதாப்பழம்/Custard Apple   &nbsp;&nbsp;</option>
+					<option value="Chikku">சப்போட்டா  /Chikku        &nbsp;&nbsp;</option>
+					
+					
+					<option value=""> &nbsp;&nbsp;</option>
+					<option value="">  &nbsp;&nbsp;</option>
+					
+					
+					<option value="Cowpea">தட்டாப் பயறு /Cowpea &nbsp;&nbsp;</option>
+					<option value="Cilantro">மல்லி /Cilantro   &nbsp;&nbsp;</option>
+					<option value="Corn">மக்காச் சோளம்  /Corn   &nbsp;&nbsp;</option>
+					<option value="Black Lentil"> உளுந்து /Black Lentil   &nbsp;&nbsp;</option>
+					<option value="Groundnut">நிலக்கடலை/Groundnut   &nbsp;&nbsp;</option>
+					<option value="Almond">பாதாம் பருப்பு /Almond     &nbsp;&nbsp;</option>
+					<option value="Paddy">நெல் /Paddy  &nbsp;&nbsp;</option>
+					<option value="Yellow lentil">துவரம்பருப்பு/Yellow lentil  &nbsp;&nbsp;</option>
+					<option value="Green gram">பாசிப்பருப்பு /Green gram  &nbsp;&nbsp;</option>
+					<option value="Sesame seeds">எள்ளு /Sesame seeds  &nbsp;&nbsp;</option>
+					<option value="Chickpeas">கொண்டக் கடலை /Chickpeas  &nbsp;&nbsp;</option>
+					<option value="Bengal gram">கடலைப் பருப்பு /Bengal gram  &nbsp;&nbsp;</option>
+				
+
+				</select>
+					</div>
+	  </div>
+	   <div class="control-group">
+			<label class="control-label" for="weight">Amount of Weight (in Kgs)<sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" name="weight" placeholder="weight" required>
+			</div>
+		 </div>
+		<div class="control-group">
+			<label class="control-label" for="price">Expected Price(per Kg)<sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" name="price" placeholder="Expect Price" required>
+			</div>
+		 </div>
+		
+		 
+		 
+	<div class="control-group">
+		<div class="controls">
+		 <input type="submit" name="submit" value="upload" class="exclusive shopBtn">
+		</div>
+	</div>
+	</form>
+</div>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<!--div class="copyright">
+<div class="container">
+	<p class="pull-right">
+		<a href="#"><img src="assets/img/maestro.png" alt="payment"></a>
+		<a href="#"><img src="assets/img/mc.png" alt="payment"></a>
+		<a href="#"><img src="assets/img/pp.png" alt="payment"></a>
+		<a href="#"><img src="assets/img/visa.png" alt="payment"></a>
+		<a href="#"><img src="assets/img/disc.png" alt="payment"></a>
+	</p>
+	<span>Copyright &copy; 2018<br>manivannan own businees</span>
+</div>
+</div>
+<a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
+ 
+    <script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.easing-1.3.min.js"></script>
+    <script src="assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script src="assets/js/shop.js"></script-->
+  </body>
+</html>
