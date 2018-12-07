@@ -88,19 +88,20 @@ Navigation Bar Section
 	<hr class="soften"/>	
 	<div class="row-fluid">
 		<div class="span8 relative">
-		<iframe style="width:100%; height:350px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.co.in/maps/place/Mattuthavani+Integrated+Bus+Terminus/@9.9441093,78.1539058,17z/data=!3m1!4b1!4m5!3m4!1s0x3b00c5ccd3ad4a7d:0xb0edd8e712fadaa3!8m2!3d9.9441093!4d78.1560945https://www.google.co.in/maps/place/Mattuthavani+Integrated+Bus+Terminus/@9.9441093,78.1539058,17z/data=!3m1!4b1!4m5!3m4!1s0x3b00c5ccd3ad4a7d:0xb0edd8e712fadaa3!8m2!3d9.9441093!4d78.1560945"></iframe>
+		<!--iframe style="width:100%; height:350px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.co.in/maps/place/Mattuthavani+Integrated+Bus+Terminus/@9.9441093,78.1539058,17z/data=!3m1!4b1!4m5!3m4!1s0x3b00c5ccd3ad4a7d:0xb0edd8e712fadaa3!8m2!3d9.9441093!4d78.1560945https://www.google.co.in/maps/place/Mattuthavani+Integrated+Bus+Terminus/@9.9441093,78.1539058,17z/data=!3m1!4b1!4m5!3m4!1s0x3b00c5ccd3ad4a7d:0xb0edd8e712fadaa3!8m2!3d9.9441093!4d78.1560945"></iframe-->
 
 		<div class="absoluteBlk">
 		<div class="well wellsmall">
 		<h4>Contact Details</h4>
 		<h5>
-			2601 Mission St.<br/>
-			San Francisco, CA 94110<br/><br/>
+			3/60 Naachiyappan St.<br/>
+			Sethupathi School Opposite,<br/>
+			Madurai 625001<br/><br/>
 			 
-			info@mysite.com<br/>
-			﻿Tel 123-456-6780<br/>
-			Fax 123-456-5679<br/>
-			web:wwwmysitedomain.com
+			gogreen@market.com<br/>
+			﻿Tel 0452-263987<br/>
+			<br/>
+			web:www.gogreenmarket.com
 		</h5>
 		</div>
 		</div>
@@ -108,29 +109,29 @@ Navigation Bar Section
 		
 		<div class="span4">
 		<h4>Email Us</h4>
-		<form class="form-horizontal">
+		<form action="contact.php" method="POST" class="form-horizontal">
         <fieldset>
           <div class="control-group">
            
-              <input type="text" placeholder="name" class="input-xlarge"/>
+              <input type="text" placeholder="name" name="name" class="input-xlarge"/>
            
           </div>
 		   <div class="control-group">
            
-              <input type="text" placeholder="email" class="input-xlarge"/>
+              <input type="text" placeholder="email" name="email" class="input-xlarge"/>
            
           </div>
 		   <div class="control-group">
            
-              <input type="text" placeholder="subject" class="input-xlarge"/>
+              <input type="text" placeholder="subject" name="subject" class="input-xlarge"/>
           
           </div>
           <div class="control-group">
-              <textarea rows="3" id="textarea" class="input-xlarge"></textarea>
+              <textarea rows="3" id="textarea" name="message" class="input-xlarge"></textarea>
            
           </div>
 
-            <button class="shopBtn" type="submit">Send email</button>
+            <button class="shopBtn" name="send" type="submit">Send email</button>
 
         </fieldset>
       </form>
@@ -141,6 +142,41 @@ Navigation Bar Section
 </div>
 <br><br><br><br><br>
 
+
+
+
+
+
+<?php
+if(isset($_POST['send']))
+{
+$name       = @trim(stripslashes($_POST['name'])); 
+$from       = @trim(stripslashes($_POST['email'])); 
+$subject    = @trim(stripslashes($_POST['subject'])); 
+$message    = @trim(stripslashes($_POST['message'])); 
+$to   		= 'manivannan.selvendiran@gmail.com';//replace with your email
+
+
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/plain; charset=iso-8859-1" . "\r\n";
+
+// More headers
+$headers .= 'From:'. $name . "\r\n";
+$headers .= 'Cc:'. $to . "\r\n";
+
+/*
+$headers   = array();
+$headers[] = "MIME-Version: 1.0";
+$headers[] = "Content-type: text/plain; charset=iso-8859-1";
+$headers[] = "From: {$name} <{$from}>";
+$headers[] = "Reply-To: <{$from}>";
+$headers[] = "Subject: {$subject}";
+$headers[] = "X-Mailer: PHP/".phpversion();
+*/
+mail($to, $subject, $message, $headers);
+}
+die;
+?>
 <!--div class="copyright">
 <div class="container">
 	<p class="pull-right">
@@ -152,13 +188,14 @@ Navigation Bar Section
 	</p>
 	<span>Copyright &copy; 2018<br>manivannan own businees</span>
 </div>
-</div>
+</div-->
+
 <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
  
     <script src="assets/js/jquery.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/jquery.easing-1.3.min.js"></script>
     <script src="assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-    <script src="assets/js/shop.js"></script-->
+    <script src="assets/js/shop.js"></script>
   </body>
 </html>

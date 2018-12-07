@@ -38,7 +38,7 @@
 				
 				
 				<a href="order.php" class="active"><span class="icon-shopping-cart"></span> Order<span class="badge badge-warning"></span></a>				
-				<a href="#"><span class="icon-envelope"></span> Contact us</a>
+				<!--a href="#"><span class="icon-envelope"></span> Contact us</a-->
 				
 			</div>
 		</div>
@@ -99,7 +99,7 @@ Navigation Bar Section
 			<div class="control-group">
 			<label class="control-label" for="name">Name <sup>*</sup></label>
 			<div class="controls">
-			  <input type="text" name="name" placeholder="First Name" value="<?php echo $_SESSION['uname']; ?>" required >
+			  <input type="text" name="name" placeholder="First Name"  title="give input correctly" value="<?php echo $_SESSION['uname']; ?>" required >
 			</div>
 		 </div>
 			 
@@ -110,7 +110,7 @@ Navigation Bar Section
 		 <div class="control-group">
 			<label class="control-label" for="mobile">Mobile Number<sup>*</sup></label>
 			<div class="controls">
-			  <input type="text" name="mobile"/>
+			  <input type="text" name="mobile"  title="give input correctly" maxlength="10"/>
 			</div>
 		 </div>
 		 
@@ -144,7 +144,7 @@ Navigation Bar Section
 		 <div class="control-group">
 			<label class="control-label" for="pincode">City<sup>*</sup></label>
 			<div class="controls">
-			  <input type="text" name="city" />
+			  <input type="text" name="city" value="madurai" readonly />
 			</div>
 		</div>
 		 
@@ -314,18 +314,11 @@ if(isset($_POST["pincode"]))
 	$pincode=$_POST["pincode"];
 if(isset($_POST["paymentway"])) 
 	$paymentway=$_POST["paymentway"];
+	$date=date("Y-m-d");
 	
 	
 	
 	
-	foreach($_SESSION["shopping_cart"] as $keys => $values)  
-           {  
-            
-             
-                     unset($_SESSION["shopping_cart"][$keys]);  
-                    
-              
-           }
 
 	
 $conn = mysqli_connect('localhost', 'root','','gogreenmarket');
@@ -347,19 +340,49 @@ $conn = mysqli_connect('localhost', 'root','','gogreenmarket');
 			}
 		
 		
-	if($paymentway=="cash on delivery"){
+	if($paymentway=="cash on delivery")
+	{
 		
-		$sql="INSERT INTO `orderdetails` (`accname`,`receiver`,`mobile`,`item`,`houseno`,`apartment`,`street`,`landmark`,`city`,`pincode`,`totalamount`,`paymentway`,`paidstatus`) VALUES ('".$_SESSION['uname']."', '".$name."', ".$mobile.",'".$_SESSION['purchased']."', ".$houseno.",'".$apartment."','".$street."','".$landmark."' ,'".$city."',".$pincode.",".$_SESSION['tamount'].",'".$paymentway."','not paid');";
+		
+		foreach($_SESSION["shopping_cart"] as $keys => $values)  
+                               {  
+							   $query = "SELECT todaystock FROM productlist where name='".$values["item_name"]."'";
+							   $temp=mysqli_fetch_array(mysqli_query($conn,$query));
+							   
+									$s=$temp[0];
+								$a=$s-$values["item_quantity"];
+								$sql1="UPDATE `productlist` SET todaystock=".$a." where name='".$values["item_name"]."' ";
+							   mysqli_query($conn,$sql1);
+							   }
+		$sql="INSERT INTO `orderdetails` (`date`,`accname`,`receiver`,`mobile`,`item`,`houseno`,`apartment`,`street`,`landmark`,`city`,`pincode`,`totalamount`,`paymentway`,`paidstatus`) VALUES ('".$date."','".$_SESSION['uname']."', '".$name."', ".$mobile.",'".$_SESSION['purchased']."', ".$houseno.",'".$apartment."','".$street."','".$landmark."' ,'".$city."',".$pincode.",".$_SESSION['tamount'].",'".$paymentway."','not paid');";
 			
 		$check=mysqli_query($conn,$sql);
 		if($check){
+			
+			
+			
+			
 			 echo '<script>alert("your order will be reach your door step within 12 hours")</script>';  
                      echo '<script>window.location="index.php"</script>';  
 			}
 			else{
 				echo "not saved";
 			}
-			}
+			
+		//clear the cart	
+			foreach($_SESSION["shopping_cart"] as $keys => $values)  
+           {  
+            
+             
+                     unset($_SESSION["shopping_cart"][$keys]);  
+                    
+              
+           }
+			
+			
+			
+			
+	}
 }
 	
 

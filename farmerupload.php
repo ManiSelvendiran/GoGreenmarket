@@ -28,11 +28,41 @@
 	
 		if($conn)
 			{
-			$sql="INSERT INTO `farmerupload`( `mobile`, `producttype`, `productname`, `weight`, `expectprice`) VALUES (".$_SESSION['mobile'].",'".$producttypes."','".$pnames."',".$weight.",".$price.");";
-			//echo($sql);
-	//		$sql = "INSERT INTO farmerupload (name,fieldid,producttype,productname,weight,expectprice) VALUES ('$_SESSION['name']',$_SESSION['fieldid'],'$producttypes','$pnames',$weight,$price)";
-			//$sql="insert into farmerupload values ('$date','$time'.strtotime(),'$_SESSION['name']',$_SESSION['mobile'],$_SESSION['fieldid'],'$producttypes','$pnames',$weight,$price)";
-		mysqli_query($conn,$sql);
+				$p="Not Paid";
+			$sql="INSERT INTO `farmerupload`( `name`,`mobile`, `producttype`, `productname`, `weight`, `expectprice`,`payment`) VALUES ('".$_SESSION['name']."',".$_SESSION['mobile'].",'".$producttypes."','".$pnames."',".$weight.",".$price.",'".$p."');";
+			mysqli_query($conn,$sql);
+		
+		$todaystock=0;
+		$expectprice=0;
+		$totalprice=0;
+		$count=0;
+		$avg=0;
+		$sql1="SELECT expectprice,todaystock,totalprice FROM productlist WHERE name = '".$pnames."';";
+		$temp1=mysqli_query($conn,$sql1);
+		while($rst=mysqli_fetch_array($temp1)){
+			$todaystock=$rst['todaystock'];
+			$expectprice=$rst['expectprice'];
+			$totalprice=$rst['totalprice'];
+		}
+		
+		$sql2="SELECT COUNT(productname) FROM `farmerupload` WHERE productname='".$pnames."'";
+		$temp2=mysqli_fetch_array(mysqli_query($conn,$sql2));
+		$count=$temp2[0];
+		
+		
+		$todaystock+=$weight;
+		$totalprice+=$price;
+		
+		
+		$avg=$totalprice/$count;
+		
+		$sql3="UPDATE `productlist` SET todaystock=$todaystock,expectprice=$avg,totalprice=$totalprice WHERE name='$pnames'";
+		
+		mysqli_query($conn,$sql3);
+		
+		
+		
+		
 		echo '<script>alert("Uploaded Successfully")</script>';  
                      echo '<script>window.location="myprofile.php"</script>';  
                 

@@ -80,7 +80,7 @@ Navigation Bar Section
 
 			  
 	</div>
-	<div class="span9">
+	<div class="span12">
     <ul class="breadcrumb">
 		<li><a href="index.php">Home</a> <span class="divider">/</span></li>
 		<li class="active">Registration</li>
@@ -123,7 +123,7 @@ Admin Navigation Bar Section
 				<!--a  href="#admin_add_product.php" ><span class="icon-edit"></span> Add New Product </a--> 
 				<a  href="admin_update_price.php" > <span class="icon-edit"></span> Update product Price</a>
 				<a  href="today_order.php" class="active"> <span class="icon-shopping-cart"></span>Today order</a>	
-				
+				<a  href="today_upload.php"> <span class="icon-circle-arrow-up"></span>Today Farmer Upload</a>
 				
 				</div>
 				</div>
@@ -138,13 +138,15 @@ Admin Navigation Bar Section
                                <th width="10%">Receiver</th>  
                                <th width="25%">Address</th>  
                                <th width="40%">Products</th>
-							   <th width="5%">Total amount</th>
+							   <th width="10%">Total amount</th>
 							   <th width="5%">Payment Status</th> 
-							   <th width="5%">update</th>
+							   <th width="5%">Status</th>
 							   
                           </tr>  
                           <?php   
-                           $x = mysqli_query($conn,"SELECT * FROM orderdetails");
+						  $date=date("Y-m-d");
+						  $query = "SELECT * FROM orderdetails where date='".$date."'";
+                           $x= mysqli_query($conn,$query);
 
 					while($result = mysqli_fetch_array($x))
 						{
@@ -174,7 +176,7 @@ Admin Navigation Bar Section
 							   }
 							   ?><?php 
 							   if($result['paidstatus']=="not paid"){ ?>
-                               <td><a href="today_order.php?action=delivered&recv=<?php echo $result["totalamount"];?>"><span class="defaultBtn">Not Delivered</span></a></td>  
+                               <td><a href="today_order.php?action=delivered&recv=<?php echo $result["totalamount"];?>" onclick="JavaScript:Auto()"><span class="defaultBtn">Not Delivered</span></a></td>  
                               <?php 
 							   }
 							   else{ ?>
@@ -250,13 +252,13 @@ Admin Navigation Bar close Section
 	</p>
 	<span>Copyright &copy; 2018<br>manivannan own businees</span>
 </div>
-</div>
+</div-->
 <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
  
     <script src="assets/js/jquery.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/jquery.easing-1.3.min.js"></script>
     <script src="assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-    <script src="assets/js/shop.js"></script-->
+    <script src="assets/js/shop.js"></script>
   </body>
 </html>

@@ -55,7 +55,7 @@ if ($conn)
 				<a href="myprofile.php" class="active"><span class="icon-user"></span> My Account</a> 
 				<a  href="todayupload.html" ><span class="icon-circle-arrow-up"></span>Today Upload</a>
 				<a  href="logout.php" > <span class="icon-off"></span> Logout</a> 
-				<a href="#"><span class="icon-envelope"></span> Contact us</a>
+				<a href="contact.php"><span class="icon-envelope"></span> Contact us</a>
 				
 			</div>
 		</div>
@@ -117,7 +117,7 @@ Lower Header Section
 		<?php 
 
 		echo '<img align="right" height="150" width="150" src="data:image;base64,'.$result['image'].'">';
-		?>
+		?> 
 		
 		 <div class="control-group">
 			<label class="control-label" for="name">Name <sup>*</sup></label>
@@ -228,14 +228,14 @@ Lower Header Section
 	</p>
 	<span>Copyright &copy; 2018<br>manivannan own businees</span>
 </div>
-</div>
+</div-->
 <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
  
     <script src="assets/js/jquery.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/jquery.easing-1.3.min.js"></script>
     <script src="assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-    <script src="assets/js/shop.js"></script-->
+    <script src="assets/js/shop.js"></script>
   </body>
 </html>
 		

@@ -36,6 +36,8 @@ if ($conn)
 		{
 			 $_SESSION['mobile'] = "$mobile"; 
 			$_SESSION['psw'] = "$psw";
+			$_SESSION['name']=$result['name'];
+			
 			$flag = 1;
 		
 		}

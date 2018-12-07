@@ -115,6 +115,8 @@ if(isset($_POST["psw"]))
 				<!--a  href="#admin_add_product.php"><span class="icon-edit"></span> Add New Product </a-->  
 				<a  href="admin_update_price.php" > <span class="icon-edit"></span> Update product Price</a> 
 				<a  href="today_order.php"> <span class="icon-shopping-cart"></span>Today order</a>
+				<a  href="today_upload.php"> <span class="icon-circle-arrow-up"></span>Farmer upload Details</a>
+				
 				
 				
 				</div>

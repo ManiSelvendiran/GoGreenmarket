@@ -326,7 +326,7 @@ if(isset($_POST["signup"])){ ?>
 		 <div class="control-group">
 			<label class="control-label" for="district">District<sup>*</sup></label>
 			<div class="controls">
-			  <input type="text" value="madurai" name="district" placeholder="Available only in Madurai city"></textarea>
+			  <input type="text" value="madurai" name="district" readonly></textarea>
 			</div>
 		</div>
 		 
@@ -551,13 +551,13 @@ echo $e;
 	</p>
 	<span>Copyright &copy; 2018<br>manivannan own businees</span>
 </div>
-</div>
+</div-->
 <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
  
     <script src="assets/js/jquery.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/jquery.easing-1.3.min.js"></script>
     <script src="assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-    <script src="assets/js/shop.js"></script-->
+    <script src="assets/js/shop.js"></script>
   </body>
 </html>

@@ -1,6 +1,43 @@
 <?php   
  session_start();  
  $connect = mysqli_connect("localhost", "root", "", "gogreenmarket");  
+ 
+   
+ $date=date("Y-m-d");
+ $beans="Beans";
+ $zero=0;
+
+
+
+ $query1 = "SELECT * FROM productlist";  
+ $tdate1=mysqli_query($connect,$query1);
+ while($row1 = mysqli_fetch_array($tdate1))  
+{ 
+		$ts=$row1['todaystock'];
+		$ep=$row1['expectprice'];
+		$td=$row1['today'];
+		$nme=$row1['name'];
+		if($row1['today']!=$date){
+
+		$sql10="UPDATE `productlist` SET todaystock=".$zero.",expectprice=".$zero.",totalprice=".$zero." ,yesterday='".$td."',today='".$date."',yesterdaystock=".$ts.",yesterdayprice=".$ep." where `name`='".$nme."'";
+		
+		mysqli_query($connect,$sql10);
+		}
+}
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  if(isset($_POST["add_to_cart"]))  
  {  
       if(isset($_SESSION["shopping_cart"]))  
@@ -215,7 +252,7 @@ if(isset($_POST["search"])) {
 		  <ul class="thumbnails">
 			
 			<?php  
-                $query = "SELECT * FROM productlist where ptype='$producttype' ORDER BY name ASC";  
+                $query = "SELECT * FROM productlist where ptype='$producttype' ORDER BY name ASC ";  
                 $result = mysqli_query($connect, $query);  
                 if(mysqli_num_rows($result) > 0)  
                 {  
@@ -228,16 +265,35 @@ if(isset($_POST["search"])) {
 				<img src="<?php echo $row["image"];?>" height="150" width="150"   class="img-responsive" /><br /> 
 				<div class="caption cntr">
 					<p><font color="#f33940"><strong><?php echo $row["name"]; ?></strong></font></p>
-					<p><strong>Rs<?php echo $row["price"]; ?></strong></p>
+					
 					<p><font color="voilet"><?php 
+					
+					if($row['todaystock']>0){ ?>
+						<p><strong>Rs<?php echo $row["expectprice"]; ?></strong></p>
+						<?php
 					echo "Stock ";
-					echo $row["stock"]; 
+					echo $row["todaystock"]; 
 					echo " Kgs" ;?></p></font>
-					<!--input type="text" name="quantity" class="span2" value="1" />Kg<br-->
 					<input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text" name="quantity" value="1">Kg<br>
 					<input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />  
-                    <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />  
+                    <input type="hidden" name="hidden_price" value="<?php echo $row["expectprice"]; ?>" />  
                     <input type="submit" name="add_to_cart" style="margin-top:5px;" onclick="JavaScript:Auto(1000)" class="exclusive shopBtn" class="btn btn-success" value="Add to Cart" />
+					<?php } 
+					else{
+						?>
+						<p><strong>Rs 0</strong></p>
+						<?php
+					echo "Stock ";
+					echo $row["todaystock"]; 
+					echo " Kgs" ;?></p></font>
+					<input class="span1" style="max-width:34px" placeholder="outof stock" id="appendedInputButtons" size="25" type="text" name="quantity" value="outof " readonly>Stock<br>
+					<input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />  
+                    <input type="hidden" name="hidden_price" value="<?php echo $row["expectprice"]; ?>" />  
+                    <input type="submit" name="add_to_cart" style="margin-top:5px;" onclick="JavaScript:Auto(1000)" class="exclusive shopBtn" class="btn btn-success" value="Add to Cart" disabled />
+					<?php } ?>
+					<!--input type="text" name="quantity" class="span2" value="1" />Kg<br-->
+					
+					
 			</form>
 					
 					
@@ -288,8 +344,8 @@ New Products
 	
 
 
-                $query = "SELECT * FROM productlist where ptype='Vegitables' ORDER BY name ASC";  
-                $result = mysqli_query($connect, $query);  
+                $querys = "SELECT * FROM productlist where ptype='Vegitables' ORDER BY name ASC";  
+                $result = mysqli_query($connect, $querys);  
                 if(mysqli_num_rows($result) > 0)  
                 {  
                      while($row = mysqli_fetch_array($result))  
@@ -301,16 +357,27 @@ New Products
 				<img src="<?php echo $row["image"];?>" height="150" width="150"   class="img-responsive" /><br /> 
 				<div class="caption cntr">
 					<p><font color="#f33940"><strong><?php echo $row["name"]; ?></strong></font></p>
-					<p><strong>Rs<?php echo $row["price"]; ?></strong></p>
+					<p><strong>Rs<?php echo $row["expectprice"]; ?></strong></p>
 					<p><font color="voilet"><?php 
+					if($row['todaystock']>0){
 					echo "Stock ";
-					echo $row["stock"]; 
+					echo $row["todaystock"]; 
 					echo " Kgs" ;?></p></font>
-					<!--input type="text" name="quantity" class="span2" value="1" />Kg<br-->
 					<input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text" name="quantity" value="1">Kg<br>
 					<input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />  
-                    <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />  
+                    <input type="hidden" name="hidden_price" value="<?php echo $row["expectprice"]; ?>" />  
                     <input type="submit" name="add_to_cart" style="margin-top:5px;" onclick="JavaScript:Auto(1000)" class="exclusive shopBtn" class="btn btn-success" value="Add to Cart" />
+					<?php } 
+					else{
+					echo "Stock ";
+					echo $row["todaystock"]; 
+					echo " Kgs" ;?></p></font>
+					<input class="span1" style="max-width:34px" placeholder="outof stock" id="appendedInputButtons" size="25" type="text" name="quantity" value="outof " readonly>Stock<br>
+					
+					<input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />  
+                    <input type="hidden" name="hidden_price" value="<?php echo $row["expectprice"]; ?>" />  
+                    <input type="submit" name="add_to_cart" style="margin-top:5px;" onclick="JavaScript:Auto(1000)" class="exclusive shopBtn" class="btn btn-success" value="Add to Cart" disabled />
+					<?php } ?>
 			</form>
 					
 					
@@ -381,13 +448,13 @@ Footer
 	</p>
 	<span>Copyright &copy; 2018<br>manivannan own businees</span>
 </div>
-</div>
+</div-->
 <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
  
     <script src="assets/js/jquery.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/jquery.easing-1.3.min.js"></script>
     <script src="assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-    <script src="assets/js/shop.js"></script-->
+    <script src="assets/js/shop.js"></script>
   </body>
 </html>
